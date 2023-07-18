@@ -67,11 +67,13 @@ async def messages(req: Request) -> Response:
     return Response(status=HTTPStatus.OK)
 
 def init_func(argv):
+    print('debug02')
     APP = web.Application(middlewares=[aiohttp_error_middleware])
     APP.router.add_post("/api/messages", messages)
     return APP
 
 if __name__ == "__main__":
+    print('debug01')
     APP = init_func(None)
     try:
         web.run_app(APP, host="0.0.0.0", port=CONFIG.PORT)
