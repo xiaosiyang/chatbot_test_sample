@@ -48,7 +48,7 @@ RECOGNIZER = FlightBookingRecognizer(CONFIG)
 BOOKING_DIALOG = BookingDialog()
 DIALOG = MainDialog(RECOGNIZER, BOOKING_DIALOG)
 BOT = DialogAndWelcomeBot(CONVERSATION_STATE, USER_STATE, DIALOG)
-
+print('debug04')
 
 # Listen for incoming requests on /api/messages.
 async def messages(req: Request) -> Response:
