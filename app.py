@@ -52,6 +52,8 @@ BOT = DialogAndWelcomeBot(CONVERSATION_STATE, USER_STATE, DIALOG)
 
 # Listen for incoming requests on /api/messages.
 async def messages(req: Request) -> Response:
+    print('debug03')
+    print(req.method)
     # Main bot message handler.
     if "application/json" in req.headers["Content-Type"]:
         body = await req.json()
@@ -75,7 +77,8 @@ def init_func(argv):
 if __name__ == "__main__":
     print('debug01')
     APP = init_func(None)
-    try:
-        web.run_app(APP, host="0.0.0.0", port=CONFIG.PORT)
-    except Exception as error:
-        raise error
+    web.run_app(APP, host='0.0.0.0', port=8000)
+    #try:
+    #    web.run_app(APP, host="0.0.0.0", port=CONFIG.PORT)
+    #except Exception as error:
+    #    raise error
