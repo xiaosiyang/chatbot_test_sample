@@ -28,6 +28,10 @@ from bots import DialogAndWelcomeBot
 from adapter_with_error_handler import AdapterWithErrorHandler
 from flight_booking_recognizer import FlightBookingRecognizer
 
+import logging
+logger = logging.getLogger()
+logger.setLevel(logging.DEBUG)
+
 CONFIG = DefaultConfig()
 
 # Create adapter.
