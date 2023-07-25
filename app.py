@@ -55,7 +55,8 @@ BOT = DialogAndWelcomeBot(CONVERSATION_STATE, USER_STATE, DIALOG)
 logger.info('print_debug04')
 
 async def hello(req:Request):
-    
+    logger.info('hello')
+    logger.info(f'request == {req}')
     if req.method == "POST":
         logger.info('inside_post')
     else:
@@ -68,7 +69,7 @@ def init_func(argv):
     logger.info('print_init_func')
     app = web.Application()
     logger.info('line63')
-    app.router.add_post('/',hello)
+    app.router.add_post('/api/messages',hello)
     logger.info('line65')
     return app
 
