@@ -59,7 +59,9 @@ async def hello(req:Request):
     if req.method == "POST":
         logger.info('inside_post')
     else:
-        logger.info(req.method)
+        logger.info(f'outside_post {req.method}')
+        #logger.info(req.method)
+
     return Response(text="Hello, World!")
 
 def init_func(argv):
