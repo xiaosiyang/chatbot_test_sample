@@ -30,7 +30,7 @@ from flight_booking_recognizer import FlightBookingRecognizer
 
 import logging
 logger = logging.getLogger()
-logger.setLevel(logging.INFO)
+#logger.setLevel(logging.INFO)
 
 CONFIG = DefaultConfig()
 
@@ -55,11 +55,16 @@ BOT = DialogAndWelcomeBot(CONVERSATION_STATE, USER_STATE, DIALOG)
 logger.info('print_debug04')
 
 async def hello(req:Request):
+    if req.method == "POST":
+        logger.info('inside_post')
     return Response(text="Hello, World!")
+
 def init_func(argv):
     logger.info('print_init_func')
     app = web.Application()
+    logger.info('line63')
     app.router.add_post('/',hello)
+    logger.info('line65')
     return app
 
 if __name__ == '__main__':
