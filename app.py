@@ -69,7 +69,7 @@ def init_func(argv):
     logger.info('print_init_func')
     app = web.Application()
     logger.info('line63')
-    app.router.add_post('/api/messages',hello)
+    app.router.add_post('/',hello)
     logger.info('line65')
     return app
 
