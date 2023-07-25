@@ -50,6 +50,20 @@ DIALOG = MainDialog(RECOGNIZER, BOOKING_DIALOG)
 BOT = DialogAndWelcomeBot(CONVERSATION_STATE, USER_STATE, DIALOG)
 print('debug04')
 
+async def hello(req:Request):
+    return Response(text="Hello, World!")
+def init_func(argv):
+    print('init_func')
+    app = web.Application()
+    app.router.add_get('/',hello)
+    return app
+
+if __name__ == '__main__':
+    print('main')
+    APP = init_func(None)
+    web.run_app(APP, host="0.0.0.0", port=CONFIG.PORT)
+
+'''
 # Listen for incoming requests on /api/messages.
 async def messages(req: Request) -> Response:
     print('debug03')
@@ -82,3 +96,4 @@ if __name__ == "__main__":
     #    web.run_app(APP, host="0.0.0.0", port=CONFIG.PORT)
     #except Exception as error:
     #    raise error
+'''
