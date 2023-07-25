@@ -55,8 +55,11 @@ BOT = DialogAndWelcomeBot(CONVERSATION_STATE, USER_STATE, DIALOG)
 logger.info('print_debug04')
 
 async def hello(req:Request):
+    
     if req.method == "POST":
         logger.info('inside_post')
+    else:
+        logger.info(req.method)
     return Response(text="Hello, World!")
 
 def init_func(argv):
