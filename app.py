@@ -69,7 +69,7 @@ def init_func(argv):
     logger.info('print_init_func')
     app = web.Application()
     logger.info('line63')
-    app.router.add_post('/',hello)
+    app.router.add_get('/',hello)
     logger.info('line65')
     return app
 
@@ -77,7 +77,7 @@ if __name__ == '__main__':
     logger.info('print_main')
     APP = init_func(None)
     web.run_app(APP, host="0.0.0.0", port=CONFIG.PORT)
-    
+
 
 
 '''
