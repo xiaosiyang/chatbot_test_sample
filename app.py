@@ -77,6 +77,8 @@ if __name__ == '__main__':
     logger.info('print_main')
     APP = init_func(None)
     web.run_app(APP, host="0.0.0.0", port=CONFIG.PORT)
+    
+
 
 '''
 # Listen for incoming requests on /api/messages.
